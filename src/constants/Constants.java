@@ -19,6 +19,9 @@ public final class Constants {
 	public static final String PERIOD = ".";
 	public static final String DOUBLE_QUOTE = "\"";
 
+	public static final String DIRECTORY_ASSETS = "assets"+PATH_SEPARATOR;
+	public static final String DIRECTORY_BACKGROUNDS = DIRECTORY_ASSETS+"backgrounds";
+	
 	private Constants(){
 	    throw new AssertionError();
 	}

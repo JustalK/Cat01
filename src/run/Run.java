@@ -1,5 +1,5 @@
 package run;
-import frame.Frame;
+import game.Game;
 
 /**
  * The running function
@@ -10,7 +10,7 @@ public final class Run {
     public static void main(String[] args) {
         javax.swing.SwingUtilities.invokeLater(new Runnable() {
             public void run() {
-                new Frame();
+                new Game();
             }
         });
     }
