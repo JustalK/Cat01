@@ -2,6 +2,10 @@ package run;
 import javax.swing.*;
 import constants.Constants;
 
+/**
+ * The running function
+ * @author Justal Kevin
+ */
 public class HelloWorldSwing {
     /**
      * Create the GUI and show it.  For thread safety,
