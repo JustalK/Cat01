@@ -13,7 +13,7 @@ import javax.swing.JLabel;
 import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 
-import constants.Constants;
+import utils.Constants;
 
 /**
  * The running function
@@ -21,6 +21,7 @@ import constants.Constants;
  */
 public class Frame {
 	private JFrame frame;
+	private JLayeredPane layersLevel;
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
@@ -31,6 +32,9 @@ public class Frame {
         frame = new JFrame(Constants.GAME_NAME);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
+        layersLevel = new JLayeredPane();
+        frame.add(layersLevel);
+        
         frame.setSize(Constants.GAME_SIZE_X, Constants.GAME_SIZE_Y);
         frame.setVisible(true);
     }
@@ -39,12 +43,12 @@ public class Frame {
      * Show the main menu
      */
     public void showMenu() {
-    	JLayeredPane layers = new JLayeredPane();
-    	
+    	/**
 		try {
 			JLabel myImage = new JLabel(new ImageIcon(ImageIO.read(new File("assets/backgrounds/test.jpg"))));
 			myImage.setLayout(null);
-			frame.setContentPane(myImage);
+			myImage.setBounds(0, 0, 800, 600 );
+			layers.add(myImage,2);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -54,9 +58,8 @@ public class Frame {
     	panel.setLayout(null);
     	button.setLayout(null);
     	button.setBounds(300, 200, 200, 100 );
-    	layers.add(button, 1);
+    	layers.add(button, 4);
     	layers.add(panel, 2);
-    	
-    	frame.add(layers);
+    	**/
     }
 }
