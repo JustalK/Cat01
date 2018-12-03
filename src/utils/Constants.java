@@ -4,8 +4,10 @@ public final class Constants {
 	public static final String GAME_NAME = "CAT 01";
 	public static final int GAME_SIZE_X = 800;
 	public static final int GAME_SIZE_Y = 600;
+	public static final int NUMBER_FIELDS_LJ_FILE = 5;
+	public static final int NUMBER_CASE_GAME = 3;
 	
-	public static final int BACKGROUND_LEVEL = 0;
+	public static final int BACKGROUND_LEVEL = 1;
 	public static final int GAME_LEVEL = 1;
 	public static final int HERO_LEVEL = 2;
 	public static final int DETAILS_LEVEL = 3;

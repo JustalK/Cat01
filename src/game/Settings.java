@@ -1,13 +1,13 @@
 package game;
 
 public class Settings {
-	private static boolean showMenu = true;
+	private static boolean showMainMenu = true;
 
-	public static boolean getShowMenu() {
-		return showMenu;
+	public static boolean getShowMainMenu() {
+		return showMainMenu;
 	}
 
-	public static void setShowMenu(boolean showMenu) {
-		Settings.showMenu = showMenu;
+	public static void setShowMainMenu(boolean showMainMenu) {
+		Settings.showMainMenu = showMainMenu;
 	}
 }
