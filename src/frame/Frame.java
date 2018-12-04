@@ -51,10 +51,6 @@ public class Frame {
     	this.getInformations("levels_0_0.lj");
 		this.setBackground();
 		this.setMenu();
-		
-		this.frame.validate();
-		this.frame.revalidate();
-		this.frame.repaint();
     }
     
     public void setBackground() {
@@ -62,23 +58,19 @@ public class Frame {
 			background = new JLabel(new ImageIcon(ImageIO.read(new File(this.frameInformations.getBackground()))));
 			background.setLayout(null);
 			background.setBounds(0, 0, Constants.GAME_SIZE_X, Constants.GAME_SIZE_Y );
-			this.layersLevel.add(background,Constants.BACKGROUND_LEVEL);
+			this.layersLevel.add(background,new Integer(Constants.BACKGROUND_LEVEL));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
     }
     
     public void setMenu() {
-    	JPanel panel = new JPanel();
     	JButton options2 = new JButton("test 2");
     	JButton options1 = new JButton("test");
-    	panel.setLayout(null);
-    	panel.setBounds(0, 0, 800, 600 );
     	options2.setBounds(400, 400, 200, 100 );
     	options1.setBounds(300, 200, 100, 100 );
-    	panel.add(options2);
-    	panel.add(options1);
-    	this.layersLevel.add(panel, Constants.MENU_LEVEL);
+    	this.layersLevel.add(options2, new Integer(Constants.MENU_LEVEL));
+    	this.layersLevel.add(options1, new Integer(Constants.MENU_LEVEL));
     }
     
 	public void getInformations(String name) {
