@@ -1,6 +1,8 @@
 package frame;
 
 import java.awt.Dimension;
+import java.awt.Image;
+import java.awt.Insets;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -65,12 +67,22 @@ public class Frame {
     }
     
     public void setMenu() {
-    	JButton options2 = new JButton("test 2");
-    	JButton options1 = new JButton("test");
-    	options2.setBounds(400, 400, 200, 100 );
-    	options1.setBounds(300, 200, 100, 100 );
+    	this.createButton(this.frameInformations.getBackground(),300, 400, 200, 100 );
+    	this.createButton(this.frameInformations.getBackground(),300, 200, 200, 100 );
+    }
+    
+    public void createButton(String path, int x, int y, int dimX, int dimY) {
+    	JButton options2 = new JButton();
+    	try {
+    		Image img = ImageIO.read(new File(path));
+    		options2.setIcon(new ImageIcon(img));
+    		options2.setMargin(new Insets(0, 0, 0, 0));
+    		options2.setBorder(null);
+    	} catch (Exception ex) {
+    		System.out.println(ex);
+    	}
+    	options2.setBounds(x, y, dimX, dimY);
     	this.layersLevel.add(options2, new Integer(Constants.MENU_LEVEL));
-    	this.layersLevel.add(options1, new Integer(Constants.MENU_LEVEL));
     }
     
 	public void getInformations(String name) {
