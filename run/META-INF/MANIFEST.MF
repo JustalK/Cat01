@@ -1,3 +1,4 @@
 Manifest-Version: 1.0
 Main-Class: run.Run
 Created-By: 1.8.0_91 (Oracle Corporation)
+Class-path: ./assets
