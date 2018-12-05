@@ -14,12 +14,12 @@ javac -classpath ./src/ -d ./run/ ./src/*/*.java
 
 Then, you have to create the jar. So we have to run this command :
 ```
-cp -r assets/ run/ cd run && jar -cvfm test.jar META-INF/MANIFEST.MF *
+cp -r src/assets/ run/ && cd run && jar -cvfm test.jar META-INF/MANIFEST.MF *
 ```
 
 Finally, you can run the jar for testing of everything is OK :
 ```
-java -jar test.jar
+java -jar test.jar && chmod +x test.jar
 ```
 
 ## RUNNING

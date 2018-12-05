@@ -7,6 +7,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Scanner;
 
@@ -57,7 +58,8 @@ public class Frame {
     
     public void setBackground() {
 		try {
-			background = new JLabel(new ImageIcon(ImageIO.read(new File(this.frameInformations.getBackground()))));
+			InputStream is=getClass().getResourceAsStream(this.frameInformations.getBackground());
+			background = new JLabel(new ImageIcon(ImageIO.read(is)));
 			background.setLayout(null);
 			background.setBounds(0, 0, Constants.GAME_SIZE_X, Constants.GAME_SIZE_Y );
 			this.layersLevel.add(background,new Integer(Constants.BACKGROUND_LEVEL));
@@ -74,7 +76,8 @@ public class Frame {
     public void createButton(String path, int x, int y, int dimX, int dimY) {
     	JButton options2 = new JButton();
     	try {
-    		Image img = ImageIO.read(new File(path));
+			InputStream is=getClass().getResourceAsStream(path);
+    		Image img = ImageIO.read(is);
     		options2.setIcon(new ImageIcon(img));
     		options2.setMargin(new Insets(0, 0, 0, 0));
     		options2.setBorder(null);
@@ -86,24 +89,21 @@ public class Frame {
     }
     
 	public void getInformations(String name) {
-		try {
-			HashMap<String,String> informations = new HashMap<String,String>();
-			Scanner scanner = new Scanner(new File(Constants.DIRECTORY_LEVELS+Constants.FILE_SEPARATOR+name));
-			
-			for(int i=0;i<Constants.NUMBER_FIELDS_LJ_FILE;i++) {
-				informations.put(scanner.nextLine(), scanner.nextLine());
-			}
-			
-			scanner.nextLine();
-			String[] levels= new String[Constants.NUMBER_CASE_GAME];
-			for(int i=0; scanner.hasNextLine(); i++) {
-				levels[i] = scanner.nextLine();
-			}
-			
-			this.frameInformations = new FrameInformations(informations, levels);
-			scanner.close();
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+		HashMap<String,String> informations = new HashMap<String,String>();
+		InputStream is=getClass().getResourceAsStream(Constants.DIRECTORY_LEVELS+Constants.FILE_SEPARATOR+name);
+		Scanner scanner = new Scanner(is);
+		
+		for(int i=0;i<Constants.NUMBER_FIELDS_LJ_FILE;i++) {
+			informations.put(scanner.nextLine(), scanner.nextLine());
 		}
+		
+		scanner.nextLine();
+		String[] levels= new String[Constants.NUMBER_CASE_GAME];
+		for(int i=0; scanner.hasNextLine(); i++) {
+			levels[i] = scanner.nextLine();
+		}
+		
+		this.frameInformations = new FrameInformations(informations, levels);
+		scanner.close();
 	}
 }

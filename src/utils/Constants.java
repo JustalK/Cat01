@@ -27,7 +27,7 @@ public final class Constants {
 	public static final String PERIOD = ".";
 	public static final String DOUBLE_QUOTE = "\"";
 
-	public static final String DIRECTORY_ASSETS = "assets"+FILE_SEPARATOR;
+	public static final String DIRECTORY_ASSETS = "/assets"+FILE_SEPARATOR;
 	public static final String DIRECTORY_BACKGROUNDS = Constants.DIRECTORY_ASSETS+"backgrounds";
 	public static final String DIRECTORY_LEVELS = Constants.DIRECTORY_ASSETS+"levels";
 	
