@@ -20,6 +20,13 @@ public final class Constants {
 	/** System property - <tt>path.separator</tt> */
 	public static final String PATH_SEPARATOR = System.getProperty("path.separator");
 
+	public static final String KEY_START_GAME = "startGame";
+	public static final String KEY_BACKGROUND = "background";
+	public static final String KEY_FI_LEFT = "left";
+	public static final String KEY_FI_RIGHT = "right";
+	public static final String KEY_FI_BOTTOM = "bottom";
+	public static final String KEY_FI_TOP = "top";
+	
 	public static final String EMPTY_STRING = "";
 	public static final String SPACE = " ";
 	public static final String TAB = "\t";

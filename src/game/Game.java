@@ -11,14 +11,19 @@ import utils.Constants;
 
 public class Game {
 	private Frame frame;
-	private ActionListener startGame;
+	private HashMap<String,ActionListener> actions;
 	
 	public Game() {
-		startGame = new StartGame();
-		frame = new Frame(startGame);
+		this.setActions();
+		frame = new Frame(actions);
 		
 		if(Settings.getShowMainMenu()) {
 			frame.showMainMenu();
 		}
+	}
+	
+	public final void setActions() {
+		actions = new HashMap<String,ActionListener>();
+		actions.put(Constants.KEY_START_GAME, new StartGame());
 	}
 }

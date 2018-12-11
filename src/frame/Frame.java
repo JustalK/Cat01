@@ -32,14 +32,14 @@ public class Frame {
 	private FrameInformations frameInformations;
 	private JLayeredPane layersLevel;
 	private JLabel background;
-	private ActionListener startGame;
+	private HashMap<String,ActionListener> actions;
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    public Frame(ActionListener startGame) {
-    	this.startGame = startGame;
+    public Frame(HashMap<String,ActionListener> actions) {
+    	this.actions = actions;
     	
         //Create and set up the window.
         frame = new JFrame(Constants.GAME_NAME);
@@ -74,7 +74,7 @@ public class Frame {
     }
     
     public void setMenu() {
-    	this.layersLevel.add(new Button(this.frameInformations.getBackground(),300, 400, 200, 100, startGame), new Integer(Constants.MENU_LEVEL));
+    	this.layersLevel.add(new Button(this.frameInformations.getBackground(),300, 400, 200, 100, actions.get(Constants.KEY_START_GAME)), new Integer(Constants.MENU_LEVEL));
     	this.layersLevel.add(new Button(this.frameInformations.getBackground(),300, 200, 200, 100, null), new Integer(Constants.MENU_LEVEL));
     }
     

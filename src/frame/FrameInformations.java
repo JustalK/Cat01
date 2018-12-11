@@ -2,6 +2,8 @@ package frame;
 
 import java.util.HashMap;
 
+import utils.Constants;
+
 public class FrameInformations {
 	private String background;
 	private String left;
@@ -11,11 +13,11 @@ public class FrameInformations {
 	private String[] levels;
 	
 	public FrameInformations(HashMap<String,String> informations, String[] levels) {
-		this.setBackground(informations.get("background"));
-		this.setLeft(informations.get("left"));
-		this.setRight(informations.get("right"));
-		this.setBottom(informations.get("bottom"));
-		this.setTop(informations.get("top"));
+		this.setBackground(informations.get(Constants.KEY_BACKGROUND));
+		this.setLeft(informations.get(Constants.KEY_FI_LEFT));
+		this.setRight(informations.get(Constants.KEY_FI_RIGHT));
+		this.setBottom(informations.get(Constants.KEY_FI_BOTTOM));
+		this.setTop(informations.get(Constants.KEY_FI_TOP));
 		this.setLevels(levels);
 	}
 
