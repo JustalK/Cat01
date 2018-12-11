@@ -27,17 +27,20 @@ import utils.Constants;
  * The running function
  * @author Justal Kevin
  */
-public class Frame implements ActionListener {
+public class Frame {
 	private JFrame frame;
 	private FrameInformations frameInformations;
 	private JLayeredPane layersLevel;
 	private JLabel background;
+	private ActionListener startGame;
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    public Frame() {
+    public Frame(ActionListener startGame) {
+    	this.startGame = startGame;
+    	
         //Create and set up the window.
         frame = new JFrame(Constants.GAME_NAME);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -71,28 +74,8 @@ public class Frame implements ActionListener {
     }
     
     public void setMenu() {
-    	this.createButton(this.frameInformations.getBackground(),300, 400, 200, 100 );
-    	this.createButton(this.frameInformations.getBackground(),300, 200, 200, 100 );
-    }
-    
-    public void createButton(String path, int x, int y, int dimX, int dimY) {
-    	JButton options2 = new JButton();
-    	try {
-			InputStream is=getClass().getResourceAsStream(path);
-    		Image img = ImageIO.read(is);
-    		options2.setIcon(new ImageIcon(img));
-    		options2.setMargin(new Insets(0, 0, 0, 0));
-    		options2.setBorder(null);
-    	} catch (Exception ex) {
-    		System.out.println(ex);
-    	}
-    	options2.setBounds(x, y, dimX, dimY);
-    	options2.addActionListener(this);
-    	this.layersLevel.add(options2, new Integer(Constants.MENU_LEVEL));
-    }
-    
-    public void actionPerformed(ActionEvent e) {
-    	System.out.println("test");
+    	this.layersLevel.add(new Button(this.frameInformations.getBackground(),300, 400, 200, 100, startGame), new Integer(Constants.MENU_LEVEL));
+    	this.layersLevel.add(new Button(this.frameInformations.getBackground(),300, 200, 200, 100, null), new Integer(Constants.MENU_LEVEL));
     }
     
 	public void getInformations(String name) {
