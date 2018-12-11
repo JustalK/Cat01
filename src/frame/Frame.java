@@ -3,6 +3,8 @@ package frame;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -25,7 +27,7 @@ import utils.Constants;
  * The running function
  * @author Justal Kevin
  */
-public class Frame {
+public class Frame implements ActionListener {
 	private JFrame frame;
 	private FrameInformations frameInformations;
 	private JLayeredPane layersLevel;
@@ -85,7 +87,12 @@ public class Frame {
     		System.out.println(ex);
     	}
     	options2.setBounds(x, y, dimX, dimY);
+    	options2.addActionListener(this);
     	this.layersLevel.add(options2, new Integer(Constants.MENU_LEVEL));
+    }
+    
+    public void actionPerformed(ActionEvent e) {
+    	System.out.println("test");
     }
     
 	public void getInformations(String name) {
