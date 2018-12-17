@@ -1,5 +1,6 @@
 package frame;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Insets;
@@ -96,5 +97,7 @@ public class Frame {
 	
 	public void render() {
 		this.frame.repaint();
+
+		this.frame.setBackground(new Color(000000));
 	}
 }

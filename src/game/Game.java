@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -29,7 +30,7 @@ public class Game {
 		frame.showMainMenu();
 		Settings.setStartConsole(false);
 		
-		//loop();
+		loop();
 	}
 	
 	public final void setActions() {
@@ -58,7 +59,7 @@ public class Game {
 		int frames = 0, ticks = 0;
 		long timer = System.currentTimeMillis();
 		boolean running = true;
-		boolean RENDER_TIME = false;
+		boolean RENDER_TIME = true;
 		
 	    while (running) {
 
