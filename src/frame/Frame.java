@@ -33,13 +33,15 @@ public class Frame {
 	private JLayeredPane layersLevel;
 	private JLabel background;
 	private HashMap<String,ActionListener> actions;
+	private HashMap<String,Image> ressources;
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    public Frame(HashMap<String,ActionListener> actions) {
+    public Frame(HashMap<String,ActionListener> actions, HashMap<String,Image> ressources) {
     	this.actions = actions;
+    	this.ressources = ressources;
     	
         //Create and set up the window.
         frame = new JFrame(Constants.GAME_NAME);
@@ -62,20 +64,15 @@ public class Frame {
     }
     
     public void setBackground() {
-		try {
-			InputStream is=getClass().getResourceAsStream(this.frameInformations.getBackground());
-			background = new JLabel(new ImageIcon(ImageIO.read(is)));
-			background.setLayout(null);
-			background.setBounds(0, 0, Constants.GAME_SIZE_X, Constants.GAME_SIZE_Y );
-			this.layersLevel.add(background,new Integer(Constants.BACKGROUND_LEVEL));
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+		background = new JLabel(new ImageIcon(this.ressources.get(this.frameInformations.getBackground())));
+		background.setLayout(null);
+		background.setBounds(0, 0, Constants.GAME_SIZE_X, Constants.GAME_SIZE_Y );
+		this.layersLevel.add(background,new Integer(Constants.BACKGROUND_LEVEL));
     }
     
     public void setMenu() {
-    	this.layersLevel.add(new Button(this.frameInformations.getBackground(),300, 400, 200, 100, actions.get(Constants.KEY_START_GAME)), new Integer(Constants.MENU_LEVEL));
-    	this.layersLevel.add(new Button(this.frameInformations.getBackground(),300, 200, 200, 100, null), new Integer(Constants.MENU_LEVEL));
+    	this.layersLevel.add(new Button(this.ressources.get(this.frameInformations.getBackground()),300, 400, 200, 100, actions.get(Constants.KEY_START_GAME)), new Integer(Constants.MENU_LEVEL));
+    	this.layersLevel.add(new Button(this.ressources.get(this.frameInformations.getBackground()),300, 200, 200, 100, null), new Integer(Constants.MENU_LEVEL));
     }
     
 	public void getInformations(String name) {
@@ -95,5 +92,9 @@ public class Frame {
 		
 		this.frameInformations = new FrameInformations(informations, levels);
 		scanner.close();
+	}
+	
+	public void render() {
+		this.frame.repaint();
 	}
 }

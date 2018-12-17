@@ -1,9 +1,16 @@
 package game;
+import java.awt.Image;
 import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.HashMap;
 import java.util.Scanner;
+
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
 
 import actions.StartGame;
 import frame.Frame;
@@ -12,27 +19,38 @@ import utils.Constants;
 public class Game {
 	private Frame frame;
 	private HashMap<String,ActionListener> actions;
+	private HashMap<String,Image> ressources;
 	
 	public Game() {
 		this.setActions();
-		frame = new Frame(actions);
+		this.setRessources();
+		frame = new Frame(actions,ressources);
 		
-		/**
-		if(Settings.getShowMainMenu()) {
-			frame.showMainMenu();
-		}
-		**/
-		loop();
+		frame.showMainMenu();
+		Settings.setStartConsole(false);
+		
+		//loop();
 	}
 	
 	public final void setActions() {
-		actions = new HashMap<String,ActionListener>();
-		actions.put(Constants.KEY_START_GAME, new StartGame());
+		this.actions = new HashMap<String,ActionListener>();
+		this.actions.put(Constants.KEY_START_GAME, new StartGame());
+	}
+	
+	public final void setRessources() {
+		this.ressources = new HashMap<String,Image>();
+		
+		try {
+			InputStream is=getClass().getResourceAsStream("/assets/backgrounds/test.jpg");
+			this.ressources.put("test", ImageIO.read(is));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void loop() {
 		double FPS = 60;
-		double UPS = 160;
+		double UPS = 60;
 		long initialTime = System.nanoTime();
 		final double timeU = 1000000000 / UPS;
 		final double timeF = 1000000000 / FPS;
@@ -40,7 +58,7 @@ public class Game {
 		int frames = 0, ticks = 0;
 		long timer = System.currentTimeMillis();
 		boolean running = true;
-		boolean RENDER_TIME = true;
+		boolean RENDER_TIME = false;
 		
 	    while (running) {
 
@@ -51,13 +69,13 @@ public class Game {
 
 	        if (deltaU >= 1) {
 	            //getInput();
-	            //update();
+	            this.update();
 	            ticks++;
 	            deltaU--;
 	        }
 
 	        if (deltaF >= 1) {
-	            //render();
+	            this.render();
 	            frames++;
 	            deltaF--;
 	        }
@@ -71,5 +89,15 @@ public class Game {
 	            timer += 1000;
 	        }
 	    }
+	}
+	
+	public void update() {
+		if(Settings.getShowMainMenu() && Settings.getStartConsole()) {
+
+		}
+	}
+	
+	public void render() {
+		this.frame.render();
 	}
 }

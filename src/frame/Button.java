@@ -12,10 +12,8 @@ import javax.swing.JButton;
 public class Button extends JButton {
 	private static final long serialVersionUID = 1L;
 
-	public Button(String path, int x, int y, int dimX, int dimY,ActionListener action) {
+	public Button(Image img, int x, int y, int dimX, int dimY,ActionListener action) {
 		try {
-			InputStream is=getClass().getResourceAsStream(path);
-    		Image img = ImageIO.read(is);
     		this.setIcon(new ImageIcon(img));
     		this.setMargin(new Insets(0, 0, 0, 0));
     		this.setBorder(null);
