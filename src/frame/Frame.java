@@ -6,11 +6,14 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.EventListener;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
@@ -34,14 +37,14 @@ public class Frame extends JFrame {
 	private FrameInformations frameInformations;
 	private JLayeredPane layersLevel;
 	private JLabel background;
-	private HashMap<String,ActionListener> actions;
+	private HashMap<String,EventListener> actions;
 	private HashMap<String,Image> ressources;
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    public Frame(HashMap<String,ActionListener> actions, HashMap<String,Image> ressources) {
+    public Frame(HashMap<String,EventListener> actions, HashMap<String,Image> ressources) {
     	this.actions = actions;
     	this.ressources = ressources;
     	
@@ -52,6 +55,7 @@ public class Frame extends JFrame {
     	this.getInformations("levels_0_0.lj");
         layersLevel = new JLayeredPane();
         this.add(layersLevel);
+        this.addKeyListener((KeyListener) actions.get(Constants.KEY_CLOSE_GAME));
         
         this.revalidate();
         this.repaint();

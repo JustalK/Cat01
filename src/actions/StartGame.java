@@ -11,7 +11,6 @@ public class StartGame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Settings.setStartGame(true);
 		Settings.setShowMainMenu(false);
-		System.out.println("hahaha");
 	}
 
 }

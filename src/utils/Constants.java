@@ -21,6 +21,7 @@ public final class Constants {
 	public static final String PATH_SEPARATOR = System.getProperty("path.separator");
 
 	public static final String KEY_START_GAME = "startGame";
+	public static final String KEY_CLOSE_GAME = "closeGame";
 	public static final String KEY_BACKGROUND = "background";
 	public static final String KEY_FI_LEFT = "left";
 	public static final String KEY_FI_RIGHT = "right";

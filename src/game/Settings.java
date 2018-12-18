@@ -4,6 +4,7 @@ public class Settings {
 	private static boolean startConsole = true;
 	private static boolean showMainMenu = true;
 	private static boolean startGame = false;
+	private static boolean closeGame = false;
 
 	public static boolean getShowMainMenu() {
 		return showMainMenu;
@@ -27,5 +28,13 @@ public class Settings {
 
 	public static void setStartConsole(boolean startConsole) {
 		Settings.startConsole = startConsole;
+	}
+
+	public static boolean getCloseGame() {
+		return closeGame;
+	}
+
+	public static void setCloseGame(boolean closeGame) {
+		Settings.closeGame = closeGame;
 	}
 }

@@ -4,6 +4,7 @@ import java.awt.Image;
 import java.awt.Insets;
 import java.awt.event.ActionListener;
 import java.io.InputStream;
+import java.util.EventListener;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -12,7 +13,7 @@ import javax.swing.JButton;
 public class Button extends JButton {
 	private static final long serialVersionUID = 1L;
 
-	public Button(Image img, int x, int y, int dimX, int dimY,ActionListener action) {
+	public Button(Image img, int x, int y, int dimX, int dimY,EventListener action) {
 		try {
     		this.setIcon(new ImageIcon(img));
     		this.setMargin(new Insets(0, 0, 0, 0));
@@ -21,6 +22,6 @@ public class Button extends JButton {
     		System.out.println(ex);
     	}
     	this.setBounds(x, y, dimX, dimY);
-    	this.addActionListener(action);
+    	this.addActionListener((ActionListener) action);
 	}
 }
