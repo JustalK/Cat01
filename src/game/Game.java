@@ -26,11 +26,6 @@ public class Game {
 		this.setActions();
 		this.setRessources();
 		frame = new Frame(actions,ressources);
-		
-		frame.showMainMenu();
-		Settings.setStartConsole(false);
-		
-		loop();
 	}
 	
 	public final void setActions() {
@@ -94,11 +89,12 @@ public class Game {
 	
 	public void update() {
 		if(Settings.getShowMainMenu() && Settings.getStartConsole()) {
-
+			frame.showMainMenu();
+			Settings.setStartConsole(false);
 		}
 	}
 	
 	public void render() {
-		this.frame.render();
+		//this.frame.render();
 	}
 }

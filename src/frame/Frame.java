@@ -12,6 +12,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
 
 import javax.imageio.ImageIO;
@@ -28,7 +29,7 @@ import utils.Constants;
  * The running function
  * @author Justal Kevin
  */
-public class Frame {
+public class Frame extends JFrame {
 	private JFrame frame;
 	private FrameInformations frameInformations;
 	private JLayeredPane layersLevel;
@@ -44,22 +45,24 @@ public class Frame {
     	this.actions = actions;
     	this.ressources = ressources;
     	
-        //Create and set up the window.
-        frame = new JFrame(Constants.GAME_NAME);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setTitle(Constants.GAME_NAME);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.setSize(Constants.GAME_SIZE_X, Constants.GAME_SIZE_Y);
         
+    	this.getInformations("levels_0_0.lj");
         layersLevel = new JLayeredPane();
-        frame.add(layersLevel);
+        layersLevel.setName("GAME");
+        this.add(layersLevel);
         
-        frame.setSize(Constants.GAME_SIZE_X, Constants.GAME_SIZE_Y);
-        frame.setVisible(true);
+        this.revalidate();
+        this.repaint();
+        this.setVisible(true);
     }
     
     /**
      * Show the main menu
      */
     public void showMainMenu() {
-    	this.getInformations("levels_0_0.lj");
 		this.setBackground();
 		this.setMenu();
     }
@@ -97,7 +100,6 @@ public class Frame {
 	
 	public void render() {
 		this.frame.repaint();
-
-		this.frame.setBackground(new Color(000000));
+		System.out.println(this.layersLevel.getName());
 	}
 }
