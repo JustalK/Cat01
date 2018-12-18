@@ -88,13 +88,18 @@ public class Game {
 	}
 	
 	public void update() {
+		// Show the main menu
 		if(Settings.getShowMainMenu() && Settings.getStartConsole()) {
-			frame.showMainMenu();
+			this.frame.reset();
+			this.frame.showMainMenu();
 			Settings.setStartConsole(false);
+		}
+		if(Settings.getStartGame()) {
+			this.frame.reset();
 		}
 	}
 	
 	public void render() {
-		//this.frame.render();
+		this.frame.render();
 	}
 }

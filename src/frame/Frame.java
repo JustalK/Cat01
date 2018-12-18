@@ -30,7 +30,7 @@ import utils.Constants;
  * @author Justal Kevin
  */
 public class Frame extends JFrame {
-	private JFrame frame;
+	private static final long serialVersionUID = 1L;
 	private FrameInformations frameInformations;
 	private JLayeredPane layersLevel;
 	private JLabel background;
@@ -51,7 +51,6 @@ public class Frame extends JFrame {
         
     	this.getInformations("levels_0_0.lj");
         layersLevel = new JLayeredPane();
-        layersLevel.setName("GAME");
         this.add(layersLevel);
         
         this.revalidate();
@@ -98,8 +97,17 @@ public class Frame extends JFrame {
 		scanner.close();
 	}
 	
+	/**
+	 * Reset the frame
+	 */
+	public void reset() {
+		this.layersLevel.removeAll();
+	}
+	
+	/**
+	 * Render all the graphic of the frame
+	 */
 	public void render() {
-		this.frame.repaint();
-		System.out.println(this.layersLevel.getName());
+		this.repaint();
 	}
 }
