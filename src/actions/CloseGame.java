@@ -1,32 +1,18 @@
 package actions;
 
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 import game.Settings;
+import utils.Constants;
 
-public class CloseGame implements KeyListener {
+public class CloseGame extends KListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
 		int key = e.getKeyCode();
 		
-		if (key == KeyEvent.VK_ESCAPE) {
-			System.out.println("wqeqwe");
+		if (key == Constants.KE_CLOSE_GAME) {
 			Settings.setCloseGame(true);
 		}
 	}
-
-	@Override
-	public void keyReleased(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void keyTyped(KeyEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
-
 }

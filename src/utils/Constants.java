@@ -1,5 +1,7 @@
 package utils;
 
+import java.awt.event.KeyEvent;
+
 public final class Constants {
 	public static final String GAME_NAME = "CAT 01";
 	public static final int GAME_SIZE_X = 800;
@@ -27,6 +29,8 @@ public final class Constants {
 	public static final String KEY_FI_RIGHT = "right";
 	public static final String KEY_FI_BOTTOM = "bottom";
 	public static final String KEY_FI_TOP = "top";
+	
+	public static final int KE_CLOSE_GAME = KeyEvent.VK_ESCAPE;
 	
 	public static final String EMPTY_STRING = "";
 	public static final String SPACE = " ";

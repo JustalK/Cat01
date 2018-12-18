@@ -41,8 +41,13 @@ public class Game {
 		this.ressources = new HashMap<String,Image>();
 		
 		try {
-			InputStream is=getClass().getResourceAsStream("/assets/backgrounds/test.jpg");
-			this.ressources.put("test", ImageIO.read(is));
+			this.ressources.put("test", ImageIO.read(getClass().getResourceAsStream("/assets/backgrounds/test.jpg")));
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		try {
+			this.ressources.put("test2", ImageIO.read(getClass().getResourceAsStream("/assets/backgrounds/test2.jpg")));
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -67,7 +72,6 @@ public class Game {
 	        initialTime = currentTime;
 
 	        if (deltaU >= 1) {
-	            //this.input();
 	            this.update();
 	            ticks++;
 	            deltaU--;
@@ -103,6 +107,7 @@ public class Game {
 		// Start the game
 		if(Settings.getStartGame()) {
 			this.frame.reset();
+			this.frame.showGame();
 		}
 	}
 	

@@ -70,11 +70,21 @@ public class Frame extends JFrame {
 		this.setMenu();
     }
     
+    public void showGame() {
+    	this.getInformations("levels_0_1.lj");
+    	this.setBackground();
+    	this.setPlayer();
+    }
+    
     public void setBackground() {
 		background = new JLabel(new ImageIcon(this.ressources.get(this.frameInformations.getBackground())));
 		background.setLayout(null);
 		background.setBounds(0, 0, Constants.GAME_SIZE_X, Constants.GAME_SIZE_Y );
 		this.layersLevel.add(background,new Integer(Constants.BACKGROUND_LEVEL));
+    }
+    
+    public void setPlayer() {
+    	this.layersLevel.add(new Player(),new Integer(Constants.HERO_LEVEL));
     }
     
     public void setMenu() {
