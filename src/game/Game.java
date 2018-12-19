@@ -19,24 +19,27 @@ import actions.CloseGame;
 import actions.LeftActions;
 import actions.StartGame;
 import frame.Frame;
+import frame.Player;
 import utils.Constants;
 
 public class Game {
 	private Frame frame;
+	private Player player;
 	private HashMap<String,EventListener> actions;
 	private HashMap<String,Image> ressources;
 	
 	public Game() {
+		this.player = new Player();
 		this.setActions();
 		this.setRessources();
-		frame = new Frame(actions,ressources);
+		frame = new Frame(actions,ressources,player);
 	}
 	
 	public final void setActions() {
 		this.actions = new HashMap<String,EventListener>();
 		this.actions.put(Constants.KEY_START_GAME, new StartGame());
 		this.actions.put(Constants.KEY_CLOSE_GAME, new CloseGame());
-		this.actions.put(Constants.KEY_MOVE_LEFT, new LeftActions());
+		this.actions.put(Constants.KEY_MOVE_LEFT, new LeftActions(player));
 	}
 	
 	public final void setRessources() {

@@ -2,10 +2,15 @@ package actions;
 
 import java.awt.event.KeyEvent;
 
-import game.Settings;
+import frame.Player;
 import utils.Constants;
 
 public class LeftActions extends KListener {
+	Player player;
+	
+	public LeftActions(Player player) {
+		this.player = player;
+	}
 	
 	@Override
 	public void keyPressed(KeyEvent e) {
@@ -13,7 +18,7 @@ public class LeftActions extends KListener {
 		
 		if (key == Constants.KE_LEFT_KEYS) {
 			System.out.println("left");
-			Settings.setCloseGame(true);
+			this.player.moveRight();
 		}
 	}
 	

@@ -39,14 +39,16 @@ public class Frame extends JFrame {
 	private JLabel background;
 	private HashMap<String,EventListener> actions;
 	private HashMap<String,Image> ressources;
+	private Player player;
     /**
      * Create the GUI and show it.  For thread safety,
      * this method should be invoked from the
      * event-dispatching thread.
      */
-    public Frame(HashMap<String,EventListener> actions, HashMap<String,Image> ressources) {
+    public Frame(HashMap<String,EventListener> actions, HashMap<String,Image> ressources, Player player) {
     	this.actions = actions;
     	this.ressources = ressources;
+    	this.player = player;
     	
         this.setTitle(Constants.GAME_NAME);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -87,7 +89,7 @@ public class Frame extends JFrame {
     }
     
     public void setPlayer() {
-    	this.layersLevel.add(new Player(),new Integer(Constants.HERO_LEVEL));
+    	this.layersLevel.add(player,new Integer(Constants.HERO_LEVEL));
     }
     
     public void setMenu() {
