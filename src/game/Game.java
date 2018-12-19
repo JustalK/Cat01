@@ -17,6 +17,7 @@ import javax.swing.JLabel;
 
 import actions.CloseGame;
 import actions.LeftActions;
+import actions.RightActions;
 import actions.StartGame;
 import frame.Frame;
 import frame.Player;
@@ -40,6 +41,7 @@ public class Game {
 		this.actions.put(Constants.KEY_START_GAME, new StartGame());
 		this.actions.put(Constants.KEY_CLOSE_GAME, new CloseGame());
 		this.actions.put(Constants.KEY_MOVE_LEFT, new LeftActions(player));
+		this.actions.put(Constants.KEY_MOVE_RIGHT, new RightActions(player));
 	}
 	
 	public final void setRessources() {

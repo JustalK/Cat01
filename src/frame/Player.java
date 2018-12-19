@@ -19,6 +19,11 @@ public class Player extends JPanel {
 		this.setBackground(new Color(0));
 	}
 	
+	public void moveLeft() {
+		this.positionX--;
+		this.setBounds(this.positionX, this.positionY, Constants.PLAYER_SIZE_X, Constants.PLAYER_SIZE_Y);
+	}
+	
 	public void moveRight() {
 		this.positionX++;
 		this.setBounds(this.positionX, this.positionY, Constants.PLAYER_SIZE_X, Constants.PLAYER_SIZE_Y);

@@ -27,6 +27,7 @@ public final class Constants {
 	public static final String KEY_START_GAME = "startGame";
 	public static final String KEY_CLOSE_GAME = "closeGame";
 	public static final String KEY_MOVE_LEFT = "moveLeft";
+	public static final String KEY_MOVE_RIGHT = "moveRight";
 	public static final String KEY_BACKGROUND = "background";
 	public static final String KEY_FI_LEFT = "left";
 	public static final String KEY_FI_RIGHT = "right";
@@ -35,6 +36,7 @@ public final class Constants {
 	
 	public static final int KE_CLOSE_GAME = KeyEvent.VK_ESCAPE;
 	public static final int KE_LEFT_KEYS = KeyEvent.VK_LEFT;
+	public static final int KE_RIGHT_KEYS = KeyEvent.VK_RIGHT;
 	
 	public static final String EMPTY_STRING = "";
 	public static final String SPACE = " ";

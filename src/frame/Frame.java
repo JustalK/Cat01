@@ -59,6 +59,7 @@ public class Frame extends JFrame {
         this.add(layersLevel);
         this.addKeyListener((KeyListener) actions.get(Constants.KEY_CLOSE_GAME));
         this.addKeyListener((KeyListener) actions.get(Constants.KEY_MOVE_LEFT));
+        this.addKeyListener((KeyListener) actions.get(Constants.KEY_MOVE_RIGHT));
         
         this.revalidate();
         this.repaint();
