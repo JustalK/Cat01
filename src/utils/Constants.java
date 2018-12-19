@@ -6,6 +6,8 @@ public final class Constants {
 	public static final String GAME_NAME = "CAT 01";
 	public static final int GAME_SIZE_X = 800;
 	public static final int GAME_SIZE_Y = 600;
+	public static final int PLAYER_SIZE_X = 50;
+	public static final int PLAYER_SIZE_Y = 50;
 	public static final int NUMBER_FIELDS_LJ_FILE = 5;
 	public static final int NUMBER_CASE_GAME = 3;
 	
