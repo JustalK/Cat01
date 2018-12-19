@@ -56,10 +56,13 @@ public class Frame extends JFrame {
         layersLevel = new JLayeredPane();
         this.add(layersLevel);
         this.addKeyListener((KeyListener) actions.get(Constants.KEY_CLOSE_GAME));
+        this.addKeyListener((KeyListener) actions.get(Constants.KEY_MOVE_LEFT));
         
         this.revalidate();
         this.repaint();
         this.setVisible(true);
+        this.setFocusable(true);
+        
     }
     
     /**

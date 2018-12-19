@@ -16,6 +16,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import actions.CloseGame;
+import actions.LeftActions;
 import actions.StartGame;
 import frame.Frame;
 import utils.Constants;
@@ -35,6 +36,7 @@ public class Game {
 		this.actions = new HashMap<String,EventListener>();
 		this.actions.put(Constants.KEY_START_GAME, new StartGame());
 		this.actions.put(Constants.KEY_CLOSE_GAME, new CloseGame());
+		this.actions.put(Constants.KEY_MOVE_LEFT, new LeftActions());
 	}
 	
 	public final void setRessources() {
@@ -105,9 +107,10 @@ public class Game {
 			Settings.setStartConsole(false);
 		}
 		// Start the game
-		if(Settings.getStartGame()) {
+		if(Settings.getStartGame() && !Settings.getInGame()) {
 			this.frame.reset();
 			this.frame.showGame();
+			Settings.setInGame(true);
 		}
 	}
 	
