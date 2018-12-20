@@ -10,22 +10,30 @@ public class Player extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private int positionX;
 	private int positionY;
+	private int velocity;
 	
 	public Player() {
 		this.positionX = 0;
 		this.positionY = 0;
+		this.velocity = 0;
 		this.setLayout(null);
 		this.setBounds(this.positionX, this.positionY, Constants.PLAYER_SIZE_X, Constants.PLAYER_SIZE_Y);
 		this.setBackground(new Color(0));
 	}
 	
+	public void dontMove() {
+		this.velocity=0;
+	}
+	
 	public void moveLeft() {
-		this.positionX--;
+		this.positionX-=this.velocity+1;
+		this.velocity++;
 		this.setBounds(this.positionX, this.positionY, Constants.PLAYER_SIZE_X, Constants.PLAYER_SIZE_Y);
 	}
 	
 	public void moveRight() {
-		this.positionX++;
+		this.positionX+=this.velocity+1;
+		this.velocity++;
 		this.setBounds(this.positionX, this.positionY, Constants.PLAYER_SIZE_X, Constants.PLAYER_SIZE_Y);
 	}
 }
