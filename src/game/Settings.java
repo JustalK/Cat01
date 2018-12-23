@@ -6,6 +6,8 @@ public class Settings {
 	private static boolean startGame = false;
 	private static boolean inGame = false;
 	private static boolean closeGame = false;
+	private static boolean left = false;
+	private static boolean right = false;
 
 	public static boolean getShowMainMenu() {
 		return showMainMenu;
@@ -45,5 +47,21 @@ public class Settings {
 
 	public static void setInGame(boolean inGame) {
 		Settings.inGame = inGame;
+	}
+
+	public static boolean getLeft() {
+		return left;
+	}
+
+	public static void setLeft(boolean left) {
+		Settings.left = left;
+	}
+
+	public static boolean getRight() {
+		return right;
+	}
+
+	public static void setRight(boolean right) {
+		Settings.right = right;
 	}
 }

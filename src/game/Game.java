@@ -40,8 +40,8 @@ public class Game {
 		this.actions = new HashMap<String,EventListener>();
 		this.actions.put(Constants.KEY_START_GAME, new StartGame());
 		this.actions.put(Constants.KEY_CLOSE_GAME, new CloseGame());
-		this.actions.put(Constants.KEY_MOVE_LEFT, new LeftActions(player));
-		this.actions.put(Constants.KEY_MOVE_RIGHT, new RightActions(player));
+		this.actions.put(Constants.KEY_MOVE_LEFT, new LeftActions());
+		this.actions.put(Constants.KEY_MOVE_RIGHT, new RightActions());
 	}
 	
 	public final void setRessources() {
@@ -117,9 +117,22 @@ public class Game {
 			this.frame.showGame();
 			Settings.setInGame(true);
 		}
+		// During the game
+		if(Settings.getInGame()) {
+			if(Settings.getLeft()) {
+				player.moveLeft();
+			} else 
+			if(Settings.getRight()) {
+				player.moveRight();
+			} else 
+			if(!Settings.getLeft() && !Settings.getRight()) {
+				player.noMove();
+			}
+		}
 	}
 	
 	public void render() {
 		this.frame.render();
+		this.player.render();
 	}
 }
